@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "toastify-ctk"
+version = "0.0.1"
+description = "Modern toast notifications for CustomTkinter"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+
+authors = [
+    { name = "Waqas Khan" }
+]
+
+keywords = [
+    "customtkinter",
+    "toast",
+    "notifications",
+    "ui",
+    "tkinter"
+]
+
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "customtkinter"
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
