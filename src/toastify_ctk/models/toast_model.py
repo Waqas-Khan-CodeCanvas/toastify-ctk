@@ -2,7 +2,7 @@ from dataclasses import dataclass
 
 #  toast model for the toast configurations and key defined values
 
-@dataclass
+@dataclass(slots=True)
 class ToastModel:
     message: str
     toast_type: str = "info"
