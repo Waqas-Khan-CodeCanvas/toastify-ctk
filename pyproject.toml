@@ -11,7 +11,7 @@ requires-python = ">=3.10"
 license = "MIT"
 
 authors = [
-    { name = "Waqas Khan" }
+    { name = "Waqas Khan" , email = "waqaskhan0589@gmail.com"}
 ]
 
 keywords = [
@@ -19,7 +19,9 @@ keywords = [
     "toast",
     "notifications",
     "ui",
-    "tkinter"
+    "tkinter",
+    "toastify-ctk",
+    "toastify"
 ]
 
 classifiers = [
