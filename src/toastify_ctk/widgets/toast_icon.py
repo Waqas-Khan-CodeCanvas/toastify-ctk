@@ -11,11 +11,7 @@ ICONS = {
 
 class ToastIcon(ctk.CTkLabel):
 
-    def __init__(
-        self,
-        parent,
-        toast_type,
-        color
+    def __init__( self, parent, toast_type, color
     ):
 
         super().__init__(
