@@ -3,11 +3,7 @@ import customtkinter as ctk
 
 class CloseButton(ctk.CTkButton):
 
-    def __init__(
-        self,
-        parent,
-        command,
-        text_color="#FFFFFF"
+    def __init__( self, parent, command, text_color="#FFFFFF"
     ):
 
         super().__init__(
