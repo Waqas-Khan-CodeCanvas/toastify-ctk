@@ -3,12 +3,7 @@ import customtkinter as ctk
 
 class MessageLabel(ctk.CTkLabel):
 
-    def __init__(
-        self,
-        parent,
-        text,
-        text_color,
-        wraplength
+    def __init__( self, parent, text, text_color, wraplength
     ):
 
         super().__init__(
