@@ -3,15 +3,7 @@ import tkinter as tk
 
 class RoundedRect:
 
-    def __init__(
-        self,
-        canvas: tk.Canvas,
-        x1,
-        y1,
-        x2,
-        y2,
-        radius=16,
-        **kwargs
+    def __init__( self, canvas: tk.Canvas, x1, y1, x2, y2, radius=16, **kwargs
     ):
 
         points = [
