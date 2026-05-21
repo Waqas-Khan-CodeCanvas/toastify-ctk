@@ -3,11 +3,7 @@ import customtkinter as ctk
 
 class ProgressBar(ctk.CTkProgressBar):
 
-    def __init__(
-        self,
-        parent,
-        progress_color,
-        fg_color
+    def __init__( self, parent, progress_color, fg_color
     ):
 
         super().__init__(
