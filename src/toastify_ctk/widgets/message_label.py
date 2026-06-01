@@ -12,6 +12,6 @@ class MessageLabel(ctk.CTkLabel):
             text_color=text_color,
             font=("Segoe UI", 12),
             justify="left",
-            anchor="w",
-            wraplength=wraplength
+            # anchor="w",
+            # wraplength=wraplength
         )
