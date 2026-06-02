@@ -1,6 +1,4 @@
 import customtkinter as ctk
-
-
 ICONS = {
     "info": "ℹ",
     "success": "✔",
@@ -8,17 +6,13 @@ ICONS = {
     "error": "✖",
 }
 
+class IconWidget(ctk.CTkLabel):
 
-class ToastIcon(ctk.CTkLabel):
-
-    def __init__( self, parent, toast_type, color
-    ):
+    def __init__(self, parent, icon, color):
 
         super().__init__(
             parent,
-            text=ICONS.get(toast_type, "●"),
+            text=icon,
             text_color=color,
-            font=("Segoe UI", 20, "bold"),
-            width=24,
-            anchor="center"
+            font=("Segoe UI", 18, "bold")
         )
