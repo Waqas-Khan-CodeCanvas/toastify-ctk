@@ -1,47 +1,67 @@
 import customtkinter as ctk
-
-from src.toastify_ctk.models.toast_model import ToastModel
-from src.toastify_ctk.components.toast_window import ToastWindow
-
+from components.toast_card import ToastCard
 
 ctk.set_appearance_mode("light")
-ctk.set_default_color_theme("blue")
 
 
-root = ctk.CTk()
-root.geometry("600x400")
+class App:
+    def __init__(self):
+        self.root = ctk.CTk()
+        self.root.geometry("1000x600")
+        self.root.title("Toastify Hybrid")
+
+        self.toasts = []
+        self.toast_count = 0
+
+        self.show_toast_btn = ctk.CTkButton(
+            self.root,
+            text="Show Toast",
+            command=self.show_toast
+        )
+        self.show_toast_btn.pack(pady=20)
+        self.fm  = ctk.CTkFrame(self.root , height=200 , width=580  , fg_color="blue")
+        self.fm.pack()
+
+    def show_toast(self):
+        self.toast_count += 1
+        self.show(self.toast_count)
+
+    def show(self, index):
+        toast = None
+
+        def handle_close() -> None:
+            self.remove(toast)
+
+        toast = ToastCard(
+            self.root,
+            message=f"Operation completed No:{index}",
+            icon="✓",
+            color="#22C55E",
+            duration=5000,
+            on_close=handle_close
+        )
 
 
-def show_success():
+        toast.place(x=20, y=10 + (len(self.toasts) * 65))
+        toast.start()
+        self.toasts.append(toast)
 
-    model = ToastModel(
-        message="Saved successfully!",
-        toast_type="success",
-    )
+    def remove(self, toast):
+        if toast not in self.toasts:
+            return
 
-    ToastWindow(root, model)
+        self.toasts.remove(toast)
+        toast.destroy_toast()
+
+        self.restack()
+
+    def restack(self):
+        for i, toast in enumerate(self.toasts):
+            toast.place(x=20, y=10 + (i * 65))
+
+    def run(self):
+        self.root.mainloop()
 
 
-def show_error():
-
-    model = ToastModel(
-        message="Connection failed!",
-        toast_type="error",
-    )
-
-    ToastWindow(root, model)
-
-
-ctk.CTkButton(
-    root,
-    text="Success Toast",
-    command=show_success,
-).pack(pady=20)
-
-ctk.CTkButton(
-    root,
-    text="Error Toast",
-    command=show_error,
-).pack(pady=20)
-
-root.mainloop()
+if __name__ == "__main__":
+    App().run()
