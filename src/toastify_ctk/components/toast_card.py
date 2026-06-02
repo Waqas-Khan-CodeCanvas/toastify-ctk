@@ -1,161 +1,85 @@
-import tkinter as tk
 import customtkinter as ctk
 
-from src.toastify_ctk.widgets.rounded_rect import RoundedRect
-from src.toastify_ctk.widgets.toast_icon import ToastIcon
-from src.toastify_ctk.widgets.message_label import MessageLabel
-from src.toastify_ctk.widgets.close_button import CloseButton
-from src.toastify_ctk.widgets.progress_bar import ProgressBar
+from components.widgets.accent_bar import AccentBar
+from components.widgets.icon_widget import IconWidget
+from components.widgets.message_widget import MessageWidget
+from components.widgets.close_button import CloseButton
+from components.widgets.progress_bar import ProgressBar
 
-from themes.default_theme import THEME
+from animations.progress_controller import ProgressController
+from components.widgets.toast_content import ToastContent
 
 
 class ToastCard(ctk.CTkFrame):
 
-    PADDING = 16
+    WIDTH = 280
+    HEIGHT = 60
 
     def __init__(
         self,
         parent,
-        config,
-        on_close
+        message="Toast Message",
+        icon="✓",
+        color="#22C55E",
+        duration=5000,
+        on_close=None
     ):
 
         super().__init__(
             parent,
-            fg_color="transparent"
+            width=self.WIDTH,
+            height=self.HEIGHT,
+            corner_radius=5,
+            fg_color="#1f1f1f"
         )
 
-        self.config_data = config
         self.on_close = on_close
 
-        self.width = config.width
-        self.height = config.height
+        # IMPORTANT
+        self.pack_propagate(False)
+        self.grid_propagate(False)
 
-        self.toast_color = THEME[
-            config.toast_type
-        ]
+        # ACCENT BAR 
+        self.accent = AccentBar(self , color)
+        self.accent.pack(side="left", fill="y")
 
-        self._build()
+        # MAIN CONTENT AREA
+        content = ToastContent(self , self.HEIGHT)
+        content.pack( side="top", fill="x", expand=False, padx=10, pady=(10, 5) )
 
-    def _build(self):
+        content.grid_columnconfigure(1, weight=1)
 
-        # Background Canvas
-        self.canvas = tk.Canvas(
-            self,
-            width=self.width,
-            height=self.height,
-            highlightthickness=0,
-            bd=0,
-            # bg=self.master.cget("fg_color")  TODO:checkout this error
-            bg="#000000"
-        )
+        # ICON
+        self.icon = IconWidget(content, icon, color)
+        self.icon.grid( row=0, column=0, padx=(0, 10), pady=0, sticky="w" )
 
-        self.canvas.place(
-            relx=0,
-            rely=0,
-            relwidth=1,
-            relheight=1
-        )
+        # MESSAGE
+        self.message = MessageWidget(content, message)
+        self.message.grid( row=0,column=1,sticky="w",pady=0)
 
-        RoundedRect(
-            self.canvas,
-            0,
-            0,
-            self.width,
-            self.height,
-            radius=16,
-            fill=THEME["surface"],
-            outline=THEME["border"],
-            width=1
-        )
+        # CLOSE BUTTON
+        self.close_btn = CloseButton(content, self.close)
+        self.close_btn.grid( row=0, column=2, padx=(10, 0), pady=0, sticky="e" )
 
-        # Accent Bar
+        # PROGRESS BAR
+        self.progress = ProgressBar(self, color)
 
-        self.canvas.create_rectangle(
-            0,
-            0,
-            6,
-            self.height,
-            fill=self.toast_color,
-            outline=""
-        )
+        self.progress.pack( side="bottom", fill="x" )
 
-        
-        # Content Layer
-        self.content = ctk.CTkFrame(
-            self,
-            fg_color="transparent"
-        )
+        # CONTROLLER
+        self.controller = ProgressController( self, self.progress, duration, self.close )
 
-        self.content.place(
-            relx=0,
-            rely=0,
-            relwidth=1,
-            relheight=1
-        )
+    def start(self):
+        self.controller.start()
 
-        
-        # Icon
-        self.icon = ToastIcon(
-            self.content,
-            self.config_data.toast_type,
-            self.toast_color
-        )
+    def close(self):
 
-        self.icon.place(
-            x=22,
-            rely=0.5,
-            anchor="w"
-        )
+        self.controller.stop()
 
-        
-        # Message
-        self.message = MessageLabel(
-            self.content,
-            self.config_data.message,
-            THEME["text"],
-            self.width - 120
-        )
+        if self.on_close:
+            self.on_close()
 
-        self.message.place(
-            x=60,
-            rely=0.5,
-            anchor="w"
-        )
+    def destroy_toast(self):
 
-        
-        # Close Button
-        if self.config_data.closable:
-
-            self.close_button = CloseButton(
-                self.content,
-                self.on_close,
-                THEME["text"]
-            )
-
-            self.close_button.place(
-                x=self.width - 36,
-                y=18
-            )
-
-        
-        # Progress Bar
-        if self.config_data.show_progress:
-
-            self.progress = ProgressBar(
-                self.content,
-                self.toast_color,
-                THEME["progress_bg"]
-            )
-
-            self.progress.place(
-                x=0,
-                y=self.height - 4,
-                relwidth=1
-            )
-
-    def set_progress(self, value):
-
-        if hasattr(self, "progress"):
-            self.progress.set_progress(value)
+        self.controller.stop()
+        self.destroy()
