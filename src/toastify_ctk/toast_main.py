@@ -4,3 +4,8 @@ class Toast:
     
     def say_hello(self):
         print("Hello from toastify_ctk!")
+
+
+
+
+# toast_manager.py
