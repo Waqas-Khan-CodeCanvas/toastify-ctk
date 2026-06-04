@@ -1,63 +1,85 @@
-import customtkinter as ctk
-from components.toast_card import ToastCard
+# import customtkinter as ctk
 
-ctk.set_appearance_mode("light")
+# from src.toastify_ctk.core.toast_manager import ToastManager
+
+
+# ctk.set_appearance_mode("dark")
+
+# class App:
+#     def __init__(self):
+#         self.root = ctk.CTk()
+#         self.root.geometry("1000x600")
+#         self.root.title("Toastify-CTK Demo")
+#         self.manager = ToastManager(self.root)
+        
+#         btn_box = ctk.CTkFrame(self.root)
+#         btn_box.pack(pady=10)
+        
+#         toasts = ["Success Toast","Error Toast","Warning Toast","Info Toast"]
+        
+#         for i , text in enumerate(toasts):
+#             ctk.CTkButton( btn_box, text=text ,command=lambda t=text : self.toast(t , t.split()[0].lower())  ).grid(row=0 , column=i , padx=10 , pady=10)
+
+#     def toast(self , message , toast_type):
+#         self.manager.show(message , toast_type)
+
+#     def run(self):
+
+#         self.root.mainloop()
+
+
+# if __name__ == "__main__":
+#     App().run()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import customtkinter as ctk
+
+from src.toastify_ctk.core.toast_manager import ToastManager, ToastType
+
+
+ctk.set_appearance_mode("dark")
 
 
 class App:
     def __init__(self):
         self.root = ctk.CTk()
         self.root.geometry("1000x600")
-        self.root.title("Toastify Hybrid")
+        self.root.title("Toastify-CTK Demo")
 
-        self.toasts = []
-        self.toast_count = 0
+        self.manager = ToastManager(self.root)
 
-        self.show_toast_btn = ctk.CTkButton(
-            self.root,
-            text="Show Toast",
-            command=self.show_toast
-        )
-        self.show_toast_btn.pack(pady=20)
-        self.fm  = ctk.CTkFrame(self.root , height=200 , width=580  , fg_color="blue")
-        self.fm.pack()
+        btn_box = ctk.CTkFrame(self.root)
+        btn_box.pack(pady=20)
 
-    def show_toast(self):
-        self.toast_count += 1
-        self.show(self.toast_count)
+        buttons = [
+            ("Success Toast", ToastType.SUCCESS),
+            ("Error Toast", ToastType.ERROR),
+            ("Warning Toast", ToastType.WARNING),
+            ("Info Toast", ToastType.INFO),
+        ]
 
-    def show(self, index):
-        toast = None
+        for i, (text, ttype) in enumerate(buttons):
+            ctk.CTkButton(
+                btn_box,
+                text=text,
+                command=lambda m=text, t=ttype: self.toast(m, t),
+            ).grid(row=0, column=i, padx=10)
 
-        def handle_close() -> None:
-            self.remove(toast)
-
-        toast = ToastCard(
-            self.root,
-            message=f"Operation completed No:{index}",
-            icon="✓",
-            color="#22C55E",
-            duration=5000,
-            on_close=handle_close
-        )
-
-
-        toast.place(x=20, y=10 + (len(self.toasts) * 65))
-        toast.start()
-        self.toasts.append(toast)
-
-    def remove(self, toast):
-        if toast not in self.toasts:
-            return
-
-        self.toasts.remove(toast)
-        toast.destroy_toast()
-
-        self.restack()
-
-    def restack(self):
-        for i, toast in enumerate(self.toasts):
-            toast.place(x=20, y=10 + (i * 65))
+    def toast(self, message: str, toast_type: ToastType):
+        self.manager.show(message, toast_type)
 
     def run(self):
         self.root.mainloop()
