@@ -1,10 +1,5 @@
 import customtkinter as ctk
-ICONS = {
-    "info": "ℹ",
-    "success": "✔",
-    "warning": "⚠",
-    "error": "✖",
-}
+
 
 class IconWidget(ctk.CTkLabel):
 
