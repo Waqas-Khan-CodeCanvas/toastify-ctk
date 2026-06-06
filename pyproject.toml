@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "toastify-ctk"
-version = "0.0.2"
+version = "0.0.3"
 description = "Modern toast notifications for CustomTkinter"
 readme = "README.md"
 requires-python = ">=3.10"
