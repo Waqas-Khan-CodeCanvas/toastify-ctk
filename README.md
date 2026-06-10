@@ -1,10 +1,10 @@
-# 🍞 Toastify-CTK
-
 <div align="center">
+<h1> 🌈 Toastify-CTK</h1>
 
 ### 🚀 Modern Toast Notification System for CustomTkinter
 
-A lightweight, animated, and highly customizable toast notification library built for **CustomTkinter** desktop applications in Python. Improve your UI/UX with clean, non-intrusive, modern notifications.
+A lightweight, animated, and highly customizable toast notification library built for **CustomTkinter** desktop applications in Python. Improve your UI/UX with clean, non-intrusive, modern notifications. <br>
+ 🟢 ***Success Toast*** | 🔴 ***Error Toast*** |  🟡 ***Warning Toast*** | 🔵 ***Info Toast***
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![CustomTkinter](https://img.shields.io/badge/CustomTkinter-Compatible-green.svg)
