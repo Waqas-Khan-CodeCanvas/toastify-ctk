@@ -2,12 +2,13 @@
 
 <div align="center">
 
-### Modern Toast Notifications for CustomTkinter 🚀
+### 🚀 Modern Toast Notification System for CustomTkinter
 
-A lightweight, animated, and easy-to-use toast notification system built for **CustomTkinter** desktop applications in Python. Enhance your UI with clean, non-intrusive feedback messages.
+A lightweight, animated, and highly customizable toast notification library built for **CustomTkinter** desktop applications in Python. Improve your UI/UX with clean, non-intrusive, modern notifications.
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
 ![CustomTkinter](https://img.shields.io/badge/CustomTkinter-Compatible-green.svg)
+![UI](https://img.shields.io/badge/UI-Modern-orange.svg)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Status](https://img.shields.io/badge/Status-Active-success.svg)
 
@@ -19,47 +20,60 @@ A lightweight, animated, and easy-to-use toast notification system built for **C
 
 **Toastify-CTK** is a modern toast notification library designed specifically for **CustomTkinter-based desktop applications**.
 
-It allows developers to display **beautiful, animated, and non-blocking notifications** such as success, error, warning, and info messages with minimal setup.
+It enables developers to display **beautiful, animated, and non-blocking toast messages** such as success, error, warning, and info alerts with minimal setup.
 
-Perfect for improving **user experience (UX)** in Python GUI applications.
+Built for developers who want to enhance **user experience (UX)** in Python GUI applications with modern UI feedback systems.
+
+---
+
+## 🔎 Built For
+
+- Python GUI developers
+- CustomTkinter desktop applications
+- Modern UI/UX Python projects
+- Tkinter-based applications
+- Notification and alert systems
+- Productivity and dashboard apps
 
 ---
 
 ## ✨ Features
 
-- 🍞 Lightweight toast notifications
-- 🎨 Modern UI compatible with CustomTkinter
-- ⚡ Fast and non-blocking popups
-- 🧩 Easy integration into existing projects
+- 🍞 Lightweight toast notification system
+- 🎨 Modern UI designed for CustomTkinter
+- ⚡ Fast, non-blocking execution
+- 🧩 Simple and easy integration
 - 🎯 Multiple notification types (success, error, warning, info)
-- 🎬 Smooth animations and transitions
-- 📱 Responsive positioning (top-right, bottom, etc.)
-- 🔧 Fully customizable design
+- 🎬 Smooth fade/slide animations
+- 📱 Smart positioning (top-right, bottom, etc.)
+- 🔧 Fully customizable design options
+- 🪶 Minimal performance overhead
 
 ---
 
 ## 🖼️ Preview
 
-> Add your screenshots or GIFs here
+> Add screenshots or GIF demos here for better visibility
 
 ```
-[Success Toast] ✔ Operation completed successfully
-[Error Toast] ❌ Something went wrong
-[Info Toast] ℹ New update available
+✔ Success: Operation completed successfully
+❌ Error: Something went wrong
+ℹ Info: New update available
+⚠ Warning: Please check your input
 ```
 
 ---
 
 ## 🛠️ Installation
 
-Clone the repository:
+### 1️⃣ Clone Repository
 
 ```bash
 git clone https://github.com/Waqas-Khan-CodeCanvas/toastify-ctk.git
 cd toastify-ctk
 ```
 
-Install dependencies (if any):
+### 2️⃣ Install Dependencies
 
 ```bash
 pip install customtkinter
@@ -72,16 +86,16 @@ pip install customtkinter
 ```python
 from toastify_ctk import Toast
 
-# Create a success toast
+# Success toast
 Toast.success("Operation completed successfully!")
 
-# Create an error toast
+# Error toast
 Toast.error("Something went wrong!")
 
-# Create an info toast
+# Info toast
 Toast.info("New update available")
 
-# Create a warning toast
+# Warning toast
 Toast.warning("Please check your input")
 ```
 
@@ -89,25 +103,26 @@ Toast.warning("Please check your input")
 
 ## 🎨 Toast Types
 
-| Type    | Description                | Example Message              |
-|---------|----------------------------|------------------------------|
-| Success | Operation completed        | "Saved successfully"        |
-| Error   | Something failed           | "Failed to load data"       |
-| Info    | General information        | "New update available"      |
-| Warning | Caution message            | "Check your input fields"   |
+| Type    | Description         | Example Message            |
+|---------|---------------------|----------------------------|
+| Success | Successful actions  | "Saved successfully"       |
+| Error   | Failed operations   | "Failed to load data"      |
+| Info    | General updates     | "New update available"     |
+| Warning | Caution alerts      | "Check your input fields"  |
 
 ---
 
 ## ⚙️ Customization
 
-You can customize toast appearance:
+Customize your toast notifications easily:
 
 ```python
 Toast.success(
     message="Saved successfully!",
     duration=3000,
     position="top-right",
-    font_size=14
+    font_size=14,
+    theme="dark"
 )
 ```
 
@@ -122,54 +137,53 @@ toastify-ctk/
 │   ├── __init__.py
 │   ├── toast.py
 │
-├── examples/            # Demo usage
-├── assets/              # Icons & UI assets
+├── examples/            # Example usage
+├── assets/              # Icons and UI assets
 ├── README.md
 └── LICENSE
 ```
 
 ---
 
-## 🔍 SEO Keywords
+## 🚀 Use Cases
 
-CustomTkinter toast notification, Python GUI notifications, desktop popup messages, tkinter toast system, modern Python UI library, notification system Python, GUI feedback messages
+- Desktop applications with CustomTkinter
+- Login and authentication feedback
+- Form validation alerts
+- File upload/download status updates
+- System notifications in GUI apps
+- Admin dashboards and tools
 
 ---
 
-## 📈 Use Cases
+## 🔍 SEO Keywords
 
-- Desktop applications built with CustomTkinter
-- Login/signup feedback messages
-- Form validation alerts
-- File upload/download status
-- System notifications inside Python apps
-- Productivity tools and dashboards
+customtkinter toast notification, python gui notifications, tkinter toast messages, desktop notification system python, modern python ui library, gui feedback system, animated toast messages python, lightweight notification library
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome!
+Contributions are welcome and appreciated!
 
 ```bash
 # Fork the repository
-# Create your feature branch
 git checkout -b feature/NewFeature
 
-# Commit changes
+# Make changes and commit
 git commit -m "Add new feature"
 
-# Push to branch
+# Push changes
 git push origin feature/NewFeature
 ```
 
-Then open a Pull Request.
+Open a Pull Request and describe your changes clearly.
 
 ---
 
 ## 📝 License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
 
 ---
 
@@ -184,8 +198,8 @@ GitHub: https://github.com/Waqas-Khan-CodeCanvas
 
 <div align="center">
 
-### ⭐ If you like this project, consider giving it a star!
+## ⭐ If you like this project, consider giving it a star!
 
-Made with ❤️ for Python developers
+Built with ❤️ for Python developers who love modern UI
 
 </div>
