@@ -187,12 +187,21 @@ This project is licensed under the **MIT License**.
 
 ---
 
-## 👨‍💻 Author
+### **Waqas Khan**
+Full Stack Python + Javascript Developer <br>
+studied @UET Peshawar Full-Stack & AI Developer from Pakistan. building modern Web and Desktop Applications , backend systems, automation tools, and open-source projects.
 
-### Waqas Khan
+- 🌐 GitHub: https://github.com/Waqas-Khan-CodeCanvas
+- 💼 LinkedIn: https://linkedin.com/in/waqaskhan-dev
+- 📧 Email: waqaskhan0589@gmail.com
 
-Full Stack & Python Developer  
-GitHub: https://github.com/Waqas-Khan-CodeCanvas
+### 🚀 Other Projects
+
+- **Toastify-CTK** — Beautiful toast notifications for CustomTkinter.
+- **Scholarship Finder** — AI-powered scholarship discovery platform.
+- **WhatsApp Bulk Message Bot** — Python automation tool for WhatsApp messaging.
+
+Feel free to connect, collaborate, or contribute to any of my projects.
 
 ---
 
